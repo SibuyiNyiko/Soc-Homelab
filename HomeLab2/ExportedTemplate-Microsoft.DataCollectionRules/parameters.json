@@ -1,0 +1,88 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "ruleName": {
+            "value": {
+                "type": "String",
+                "value": "DCR-Windows"
+            }
+        },
+        "location": {
+            "value": {
+                "type": "String",
+                "value": "southafricanorth"
+            }
+        },
+        "dataSources": {
+            "value": {
+                "type": "Object",
+                "value": {
+                    "windowsEventLogs": [
+                        {
+                            "streams": [
+                                "Microsoft-Event"
+                            ],
+                            "scheduledTransferPeriod": "PT5M",
+                            "xPathQueries": [
+                                "Application!*[System[(Level=2 or Level=3 or Level=4 or Level=0)]]",
+                                "Security!*[System[(band(Keywords,13510798882111488))]]",
+                                "System!*[System[(Level=1 or Level=2 or Level=3 or Level=4 or Level=0)]]"
+                            ],
+                            "name": "eventLogsDataSource"
+                        }
+                    ]
+                }
+            }
+        },
+        "dataFlows": {
+            "value": {
+                "type": "Array",
+                "value": [
+                    {
+                        "streams": [
+                            "Microsoft-Event"
+                        ],
+                        "destinations": [
+                            "la-1512289728"
+                        ],
+                        "transformKql": "source",
+                        "outputStream": "Microsoft-Event"
+                    }
+                ]
+            }
+        },
+        "destinations": {
+            "value": {
+                "type": "Object",
+                "value": {
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "/subscriptions/22def733-c85a-488c-8162-f2117b9b5bbf/resourceGroups/HomeLab/providers/Microsoft.OperationalInsights/workspaces/LAW-Soc-Lab",
+                            "workspaceId": "36f38bc6-475d-4830-ba47-488fe7eba6e5",
+                            "name": "la-1512289728"
+                        }
+                    ]
+                }
+            }
+        },
+        "tagsArray": {
+            "value": {
+                "type": "Object",
+                "value": {}
+            }
+        },
+        "apiVersion": {
+            "value": {
+                "type": "String",
+                "value": "2024-03-11"
+            }
+        },
+        "platformType": {
+            "value": {
+                "type": "String",
+                "value": "Windows"
+            }
+        }
+    }
+}

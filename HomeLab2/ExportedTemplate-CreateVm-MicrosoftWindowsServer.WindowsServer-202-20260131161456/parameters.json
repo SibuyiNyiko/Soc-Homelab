@@ -1,0 +1,273 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": {
+                "type": "String",
+                "value": "southafricanorth"
+            }
+        },
+        "networkInterfaceName1": {
+            "value": {
+                "type": "String",
+                "value": "windows767_z1"
+            }
+        },
+        "enableAcceleratedNetworking": {
+            "value": {
+                "type": "Bool",
+                "value": true
+            }
+        },
+        "networkSecurityGroupName": {
+            "value": {
+                "type": "String",
+                "value": "Windows-nsg"
+            }
+        },
+        "networkSecurityGroupRules": {
+            "value": {
+                "type": "Array",
+                "value": [
+                    {
+                        "name": "RDP",
+                        "properties": {
+                            "priority": 300,
+                            "protocol": "TCP",
+                            "access": "Allow",
+                            "direction": "Inbound",
+                            "sourceAddressPrefix": "*",
+                            "sourcePortRange": "*",
+                            "destinationAddressPrefix": "*",
+                            "destinationPortRange": "3389"
+                        }
+                    }
+                ]
+            }
+        },
+        "subnetId": {
+            "value": {
+                "type": "String",
+                "value": "/subscriptions/22def733-c85a-488c-8162-f2117b9b5bbf/resourceGroups/HomeLab/providers/Microsoft.Network/virtualNetworks/vnet-southafricanorth/subnets/snet-southafricanorth-1"
+            }
+        },
+        "publicIpAddressName1": {
+            "value": {
+                "type": "String",
+                "value": "Windows-ip"
+            }
+        },
+        "publicIpAddressType": {
+            "value": {
+                "type": "String",
+                "value": "Static"
+            }
+        },
+        "publicIpAddressSku": {
+            "value": {
+                "type": "String",
+                "value": "Standard"
+            }
+        },
+        "pipDeleteOption": {
+            "value": {
+                "type": "String",
+                "value": "Detach"
+            }
+        },
+        "virtualMachineName": {
+            "value": {
+                "type": "String",
+                "value": "Windows"
+            }
+        },
+        "virtualMachineName1": {
+            "value": {
+                "type": "String",
+                "value": "Windows"
+            }
+        },
+        "virtualMachineComputerName1": {
+            "value": {
+                "type": "String",
+                "value": "Windows"
+            }
+        },
+        "virtualMachineRG": {
+            "value": {
+                "type": "String",
+                "value": "HomeLab"
+            }
+        },
+        "osDiskType": {
+            "value": {
+                "type": "String",
+                "value": "Premium_LRS"
+            }
+        },
+        "osDiskDeleteOption": {
+            "value": {
+                "type": "String",
+                "value": "Delete"
+            }
+        },
+        "virtualMachineSize": {
+            "value": {
+                "type": "String",
+                "value": "Standard_D4s_v3"
+            }
+        },
+        "nicDeleteOption": {
+            "value": {
+                "type": "String",
+                "value": "Detach"
+            }
+        },
+        "hibernationEnabled": {
+            "value": {
+                "type": "Bool",
+                "value": false
+            }
+        },
+        "adminUsername": {
+            "value": {
+                "type": "String",
+                "value": "Windows"
+            }
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "patchMode": {
+            "value": {
+                "type": "String",
+                "value": "AutomaticByPlatform"
+            }
+        },
+        "enablePeriodicAssessment": {
+            "value": {
+                "type": "String",
+                "value": "ImageDefault"
+            }
+        },
+        "enableHotpatching": {
+            "value": {
+                "type": "Bool",
+                "value": true
+            }
+        },
+        "rebootSetting": {
+            "value": {
+                "type": "String",
+                "value": "IfRequired"
+            }
+        },
+        "securityType": {
+            "value": {
+                "type": "String",
+                "value": "TrustedLaunch"
+            }
+        },
+        "secureBoot": {
+            "value": {
+                "type": "Bool",
+                "value": true
+            }
+        },
+        "vTPM": {
+            "value": {
+                "type": "Bool",
+                "value": true
+            }
+        },
+        "virtualMachine1Zone": {
+            "value": {
+                "type": "String",
+                "value": "1"
+            }
+        },
+        "vnetLocation": {
+            "value": {
+                "type": "String",
+                "value": "southafricanorth"
+            }
+        },
+        "vnetExtendedLocation": {
+            "value": {
+                "type": "Object",
+                "value": {}
+            }
+        },
+        "vnetVirtualNetworkName": {
+            "value": {
+                "type": "String",
+                "value": "vnet-southafricanorth"
+            }
+        },
+        "vnetTagsByResource": {
+            "value": {
+                "type": "Object",
+                "value": {}
+            }
+        },
+        "vnetProperties": {
+            "value": {
+                "type": "Object",
+                "value": {
+                    "subnets": [
+                        {
+                            "name": "snet-southafricanorth-1",
+                            "properties": {
+                                "addressPrefixes": [
+                                    "172.16.0.0/24"
+                                ]
+                            }
+                        }
+                    ],
+                    "addressSpace": {
+                        "addressPrefixes": [
+                            "172.16.0.0/16"
+                        ]
+                    }
+                }
+            }
+        },
+        "vnetNatGatewaysWithNewPublicIpAddress": {
+            "value": {
+                "type": "Array",
+                "value": []
+            }
+        },
+        "vnetNatGatewaysWithoutNewPublicIpAddress": {
+            "value": {
+                "type": "Array",
+                "value": []
+            }
+        },
+        "vnetNatGatewayPublicIpAddressesNewNames": {
+            "value": {
+                "type": "Array",
+                "value": []
+            }
+        },
+        "vnetNetworkSecurityGroupsNew": {
+            "value": {
+                "type": "Array",
+                "value": []
+            }
+        },
+        "vnetResourceGroupName": {
+            "value": {
+                "type": "String",
+                "value": "HomeLab"
+            }
+        },
+        "vnetDeploymentName": {
+            "value": {
+                "type": "String",
+                "value": "network-interface-associated-virtual-network-20260131161607"
+            }
+        }
+    }
+}

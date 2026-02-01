@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": {
+                "type": "String",
+                "value": "LAW-Soc-Lab"
+            }
+        },
+        "location": {
+            "value": {
+                "type": "String",
+                "value": "southafricanorth"
+            }
+        },
+        "sku": {
+            "value": {
+                "type": "String",
+                "value": "pergb2018"
+            }
+        },
+        "tags": {
+            "value": {
+                "type": "Object",
+                "value": {}
+            }
+        }
+    }
+}
